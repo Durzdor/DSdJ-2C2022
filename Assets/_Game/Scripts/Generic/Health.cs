@@ -24,7 +24,8 @@ public class Health : MonoBehaviour
     private void Awake()
     {
         CurrentHealth = maxHealth;
-    }
+        IsDead = false;
+    }   
 
     public void Heal(int healAmount)
     {
