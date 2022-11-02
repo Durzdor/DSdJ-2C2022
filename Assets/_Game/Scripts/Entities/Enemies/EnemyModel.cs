@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class EnemyModel : MonoBehaviour
+public class EnemyModel : Actor
 {
     public EnemySO data;
     private Rigidbody _rb;

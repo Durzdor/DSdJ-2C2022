@@ -8,7 +8,6 @@ public class PlayerIdleState<T> : State<T>
     private iInput _playerInput;
     private Action _onIdle;
 
-
     public PlayerIdleState( Action onIdle, T runInput,
         T attackInput, iInput playerInput)
     {
@@ -18,10 +17,14 @@ public class PlayerIdleState<T> : State<T>
         _onIdle = onIdle;
     }
 
+    public override void Awake()
+    {
+        _onIdle?.Invoke();
+    }
+
     public override void Execute()
     {
         _playerInput.UpdateInputs();
-
 
         if (_playerInput.IsRunning())
         {

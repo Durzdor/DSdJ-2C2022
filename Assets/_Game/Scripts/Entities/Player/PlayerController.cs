@@ -25,15 +25,12 @@ public class PlayerController : MonoBehaviour
         _playerView = GetComponent<PlayerView>();
         _playerLifeController = GetComponent<LifeController>();
         _playerModel.SubscribeEvents(this);
-    //    _playerView.SubscribeEvents(this);
-    //    _playerLifeController.Subscribe(this);
+        //_playerLifeController.Subscribe(this);
 
         isCrouch = false;
 
         SubscribeEvents();
-        
         FsmInit();
-
     }
 
     private void FsmInit()

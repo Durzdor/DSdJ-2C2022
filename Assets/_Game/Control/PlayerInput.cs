@@ -44,6 +44,11 @@ public class PlayerInput : MonoBehaviour, iInput
         _xAxis = currX > 0 ? 1f : -1f;
         _yAxis = currY > 0 ? 1f : -1f;
     }
+
+    public void ReadMouseInput(InputAction.CallbackContext context)
+    {
+        
+    }
     private void OnEnable()
     {
        _joyInput.Enable();

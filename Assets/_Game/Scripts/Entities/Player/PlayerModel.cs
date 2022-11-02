@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class PlayerModel : MonoBehaviour
+public class PlayerModel : Actor
 {
   #region Position/Physics
     
@@ -11,10 +11,7 @@ public class PlayerModel : MonoBehaviour
     private float Vel => _rb.velocity.magnitude;
     private PlayerView _view;
     [SerializeField]public PlayerData data;
-    [SerializeField] private Transform attackPoint;
-    [SerializeField] private float attackRadius;
-    [SerializeField] private LayerMask enemyMask;
-
+ 
     public event Action OnDead;
     public event Action<int> OnHit;
     private bool isAlive;
@@ -23,9 +20,7 @@ public class PlayerModel : MonoBehaviour
     private void Awake()
     {
         BakeReferences();
-
         isAlive = true;
-
     }
 
     void BakeReferences()
@@ -46,7 +41,7 @@ public class PlayerModel : MonoBehaviour
     public void Idle()
     {
         _rb.velocity=Vector3.zero;
-        //_view.IdleAnimation();
+        _view.IdleAnimation();
     }
 
     public void Move(Vector3 dir)
@@ -56,7 +51,7 @@ public class PlayerModel : MonoBehaviour
         var currDir = dir * finalSpeed;
         
         _rb.velocity = currDir;
-        //  _view.RunAnimation(currDir.normalized.x);
+        _view.RunAnimation(currDir.normalized);
     }
 
 
@@ -64,7 +59,7 @@ public class PlayerModel : MonoBehaviour
     {
     //    var moving = _rb.velocity.x;
         
-       // _view.Attack(moving);
+        _view.AttackAnimation();
       //  EnemyHitCheck()?.TakeDamage(data.damage*dmgModifier);
         var attackWait = AttackWait(0.9f);
         StartCoroutine(attackWait);
@@ -74,13 +69,12 @@ public class PlayerModel : MonoBehaviour
     IEnumerator AttackWait(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
+        StopCoroutine(AttackWait(0));
     }
-
-
     public void Die()
     {
         isAlive = false;
-       // _view.DeadAnimation();
+        _view.DeadAnimation();
     }
 
     public void LookAt(Vector3 dir)
@@ -91,26 +85,12 @@ public class PlayerModel : MonoBehaviour
 
     #region Attack
 
-    // private IDamageable EnemyHitCheck()
-    // {
-    //     var hit = Physics.OverlapSphere(attackPoint.position, attackRadius,enemyMask); //  nonallocate masmejor
-    //     
-    //     if(hit==null) return null;
-    //     return hit.GetComponent<IDamageable>();
-    // }
-
-    public void TakeDamage(int damage)
+   public void TakeDamage(int damage)
     {
         OnHit?.Invoke(damage);
     }
 
     #endregion
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color= Color.red;
-        Gizmos.DrawWireSphere(attackPoint.position,attackRadius);
-    }
 
     public void RealDead()
     {

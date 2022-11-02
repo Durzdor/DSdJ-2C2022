@@ -1,18 +1,35 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerView : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Animator _animator;
+
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
+    }
+
+    public void IdleAnimation()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void RunAnimation(Vector3 move)
     {
         
     }
+
+    public void AttackAnimation()
+    {
+        
+    }
+
+    public void DeadAnimation()
+    {
+        
+    }
+
 }
