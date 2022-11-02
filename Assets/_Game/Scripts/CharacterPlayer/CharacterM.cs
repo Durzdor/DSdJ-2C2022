@@ -24,7 +24,7 @@ public class CharacterM : MonoBehaviour, IVel
     private void Awake()
     {
         cameraObject = Camera.main;
-        if (cameraObject != null) cameraObject.gameObject.GetComponent<CameraController>().AssignTarget(this.transform);
+        //if (cameraObject != null) cameraObject.gameObject.GetComponent<CameraController>().AssignTarget(this.transform);
         RigidBody = GetComponent<Rigidbody>();  
         Stats = GetComponent<CharacterStats>();
         Health = GetComponent<Health>();
