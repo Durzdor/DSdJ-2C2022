@@ -1,0 +1,204 @@
+{
+    "name": "PlayerKeyMap",
+    "maps": [
+        {
+            "name": "PlayerInputEvents",
+            "id": "d0bcab73-954b-4a51-81e0-9303424caf39",
+            "actions": [
+                {
+                    "name": "Attack",
+                    "type": "Button",
+                    "id": "d83a1f0f-77c6-455d-823a-d03162207d69",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Look",
+                    "type": "PassThrough",
+                    "id": "41f724ea-0f6e-4a57-9810-72f8825d372a",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MoveY",
+                    "type": "Button",
+                    "id": "0d84d607-ccee-4781-b1e1-1d996f9c4c8b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MoveX",
+                    "type": "Button",
+                    "id": "2ee43e79-95df-405b-a3e1-969c655abce9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "10064afd-b4de-4308-812f-8d1e719c2326",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a63fb342-1875-4227-ba86-eb87f5f97cb3",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5497c0c4-8bc9-4a8f-834a-e34ec09e7855",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fe1b8842-6efb-4a8a-89f6-c4e4f54e2ea2",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "138ce9af-7ad9-4e3c-9a2c-7f17bf0c4c86",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "Normalize(max=1)",
+                    "groups": "",
+                    "action": "MoveY",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "77e7c1db-31e9-4716-86dc-489db797d68b",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "Normalize(max=-1)",
+                    "groups": "",
+                    "action": "MoveY",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e5cdfd5c-98ea-4379-b818-9050b6a79fda",
+                    "path": "<Gamepad>/dpad/up",
+                    "interactions": "",
+                    "processors": "Normalize(max=1)",
+                    "groups": "",
+                    "action": "MoveY",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6d2a1480-d1cf-48da-8e7f-800a4d39928d",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "Normalize(max=-1)",
+                    "groups": "",
+                    "action": "MoveY",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9e836f8d-1c25-4993-8bb7-fe96391455e1",
+                    "path": "<Gamepad>/leftStick/down",
+                    "interactions": "",
+                    "processors": "AxisDeadzone",
+                    "groups": "",
+                    "action": "MoveY",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "aa1d434f-fd2a-48b3-8733-fdb3bda70189",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "Normalize(max=-1)",
+                    "groups": "",
+                    "action": "MoveX",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fa4aa24b-8905-4d65-911b-16a0d5edd828",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "Normalize(max=1)",
+                    "groups": "",
+                    "action": "MoveX",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d7469f34-4346-46f8-b9e7-d661224de2bd",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "Normalize(max=1)",
+                    "groups": "",
+                    "action": "MoveX",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8b168f8d-f6e3-4976-8413-a7505ab101f9",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "Normalize(max=-1)",
+                    "groups": "",
+                    "action": "MoveX",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "646423c3-b9dd-479f-adb8-892a2f70021e",
+                    "path": "<Gamepad>/leftStick/right",
+                    "interactions": "",
+                    "processors": "AxisDeadzone",
+                    "groups": "",
+                    "action": "MoveX",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

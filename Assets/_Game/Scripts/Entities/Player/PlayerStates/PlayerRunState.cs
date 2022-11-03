@@ -26,9 +26,8 @@ public class PlayerRunState<T> : State<T>
         
         if (_playerInput.IsRunning())
         {
-            var dir = move;
-            _onMove?.Invoke(dir);
-            _onLookAt?.Invoke(look);
+           _onMove?.Invoke(move);
+           _onLookAt?.Invoke(look);
         }
 
         if (_playerInput.IsAttacking())

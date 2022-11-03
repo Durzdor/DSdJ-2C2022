@@ -57,10 +57,7 @@ public class PlayerModel : Actor
 
     public void Attack(int dmgModifier)
     {
-    //    var moving = _rb.velocity.x;
-        
         _view.AttackAnimation();
-      //  EnemyHitCheck()?.TakeDamage(data.damage*dmgModifier);
         var attackWait = AttackWait(0.9f);
         StartCoroutine(attackWait);
     }
@@ -77,20 +74,18 @@ public class PlayerModel : Actor
         _view.DeadAnimation();
     }
 
+
     public void LookAt(Vector3 dir)
     {
-        if (dir==Vector3.zero) return;
-      
-
+        var look = dir.normalized.magnitude;
+        if (look==0f) return;
         dir.y = _transform.position.y;
         _transform.forward = dir.normalized;
-        
     }
-
 
     #region Attack
 
-   public void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         OnHit?.Invoke(damage);
     }
