@@ -6,6 +6,8 @@ public class PlayerData : ScriptableObject
 {
     [Header ("Movement")]
     public float walkSpeed;
+
+    [Header("Rotation Sens")] public float sensitivity;
   
     [Header("Life")] public int maxLife;
   

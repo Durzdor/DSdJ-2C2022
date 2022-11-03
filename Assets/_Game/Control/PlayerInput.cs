@@ -1,56 +1,71 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class PlayerInput : MonoBehaviour, iInput
+public class PlayerInput : MonoBehaviour , iInput
 {
     private PlayerKeyMap _joyInput;
+    private InputAction _movementInputActions;
+    private InputAction _lookAtInputActions;
     #region Axis
-    public float GetH => _xAxis;
-    public float GetV => _yAxis;
-    float _xAxis;
-    float _yAxis;
-    private float currX;
-    private float currY;
-
+    private Vector2 _currMovementInput;
+    private Vector3 _movement;
+    private Vector3 _lookingAt;// = Mouse.current.position.ReadValue();
+    public Vector3 GetMov => _movement;
+    public Vector3 GetLookAt => _lookingAt;
+    
+    private bool _isMoving;
     #endregion
-
     private void Awake()
     {
         _joyInput = new PlayerKeyMap();
-        _joyInput.PlayerInputEvents.MoveX.started += ctx => currX = ctx.ReadValue<float>();
-        _joyInput.PlayerInputEvents.MoveX.canceled += ctx => currX = 0f;
-        _joyInput.PlayerInputEvents.MoveY.started += ctx => currY = ctx.ReadValue<float>();
-        _joyInput.PlayerInputEvents.MoveY.canceled += ctx => currY = 0f;
+        _movementInputActions = _joyInput.PlayerInputEvents.Move;
+        _lookAtInputActions = _joyInput.PlayerInputEvents.Look;
+        
+        _movementInputActions.started += OnMoveStarted;
+        _movementInputActions.canceled += OnMoveCancelled;
+        _lookAtInputActions.performed += MouseMoving;
+        
     }
 
+    private void MouseMoving(InputAction.CallbackContext ctx)
+    {
+        _lookingAt = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        
+    }
+
+    #region Events Methods
+
+    private void OnMoveStarted(InputAction.CallbackContext ctx)
+    {
+        _currMovementInput = ctx.ReadValue<Vector2>();
+        _isMoving = true;
+    }
+    private void OnMoveCancelled(InputAction.CallbackContext ctx)
+    {
+        _currMovementInput = Vector2.zero;
+        _isMoving = false;
+    }
+
+    #endregion
     public bool IsRunning()
     {
-        return (GetH != 0 || GetV != 0); 
+        return _isMoving; 
     }
-
     public bool IsAttacking()
     {
         return _joyInput.PlayerInputEvents.Attack.triggered;
     }
-
-    
     public void UpdateInputs()
     {
-        if (currX == 0f && currY == 0f)
-        {
-            _xAxis = 0f;
-            _yAxis = 0f;
-            return;
-        }
-        _xAxis = currX > 0 ? 1f : -1f;
-        _yAxis = currY > 0 ? 1f : -1f;
-    }
-
-    public void ReadMouseInput(InputAction.CallbackContext context)
-    {
-        
+        if (!_isMoving) return;
+        _movement = new Vector3(_currMovementInput.x, 0, _currMovementInput.y);
     }
     private void OnEnable()
     {
        _joyInput.Enable();
+    } 
+    private void OnDisable()
+    {
+       _joyInput.Disable();
     }
 }

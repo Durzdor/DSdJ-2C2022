@@ -36,6 +36,7 @@ public class PlayerModel : Actor
         controller.OnMove   += Move;
         controller.OnIdle   += Idle;
         controller.OnDie   += Die;
+        controller.OnLookAt += LookAt;
     }
 
     public void Idle()
@@ -46,7 +47,6 @@ public class PlayerModel : Actor
 
     public void Move(Vector3 dir)
     {   
-     
         var finalSpeed = data.walkSpeed; // cambiar por si hay más de una velocidad
         var currDir = dir * finalSpeed;
         
@@ -79,7 +79,12 @@ public class PlayerModel : Actor
 
     public void LookAt(Vector3 dir)
     {
+        if (dir==Vector3.zero) return;
+      
+
+        dir.y = _transform.position.y;
         _transform.forward = dir.normalized;
+        
     }
 
 

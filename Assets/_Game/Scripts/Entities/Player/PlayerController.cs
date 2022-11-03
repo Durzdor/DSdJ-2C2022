@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     #region Actions
     public event Action<int> OnAttack;
     public event Action<Vector3> OnMove;
+    public event Action<Vector3> OnLookAt;
     public event Action OnIdle;
     public event Action OnDie;
     public event Action<int> OnHit;
@@ -36,8 +37,8 @@ public class PlayerController : MonoBehaviour
     private void FsmInit()
     {
         //--------------- FSM Creation -------------------//                
-        var idle = new PlayerIdleState<PlayerStatesEnum>(IdleCommand, PlayerStatesEnum.Run,PlayerStatesEnum.Attack,_playerInput );
-        var run = new PlayerRunState<PlayerStatesEnum>( PlayerStatesEnum.Idle, PlayerStatesEnum.Attack,_playerInput,MoveCommand);
+        var idle = new PlayerIdleState<PlayerStatesEnum>(IdleCommand, PlayerStatesEnum.Run,PlayerStatesEnum.Attack,_playerInput, LookAtCommand);
+        var run = new PlayerRunState<PlayerStatesEnum>( PlayerStatesEnum.Idle, PlayerStatesEnum.Attack,_playerInput,MoveCommand, LookAtCommand);
         var hit = new PlayerHitState<PlayerStatesEnum>(PlayerStatesEnum.Idle);
         var attack = new PlayerAttackState<PlayerStatesEnum>(PlayerStatesEnum.Idle,PlayerStatesEnum.Run,AttackCommand,1,_playerInput);
         var dead = new PlayerDeadState<PlayerStatesEnum>(DieCommand);
@@ -48,14 +49,12 @@ public class PlayerController : MonoBehaviour
         idle.AddTransition(PlayerStatesEnum.Hit, hit);
         idle.AddTransition(PlayerStatesEnum.Dead, dead);
 
-       
-        // Run State
+       // Run State
         run.AddTransition(PlayerStatesEnum.Idle, idle);
         run.AddTransition(PlayerStatesEnum.Attack,attack);
         run.AddTransition(PlayerStatesEnum.Hit, hit);
         run.AddTransition(PlayerStatesEnum.Dead, dead);
         
-      
         // Attack State
         attack.AddTransition(PlayerStatesEnum.Idle,idle);
         attack.AddTransition(PlayerStatesEnum.Run,run);
@@ -85,6 +84,11 @@ public class PlayerController : MonoBehaviour
     public void MoveCommand(Vector3 dir)
     {
         OnMove?.Invoke(dir);
+    }
+
+    public void LookAtCommand(Vector3 dir)
+    {
+      OnLookAt?.Invoke(dir.normalized);   
     }
 
     public void IdleCommand()
@@ -122,7 +126,7 @@ public class PlayerController : MonoBehaviour
     void SubscribeEvents()
     {
      //   _playerModel.OnHit += HitCommand;
-        _playerLifeController.OnDie += DieCommand;
+//        _playerLifeController.OnDie += DieCommand;
     }
 
 }
