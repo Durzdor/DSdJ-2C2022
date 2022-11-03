@@ -56,6 +56,7 @@ public class Projectile : MonoBehaviour
         var projectileDir = (collision.gameObject.transform.position - contactPos).normalized;
         projectileDir *= KnockBack * 10000;
         collision.gameObject.GetComponent<Rigidbody>().AddForce(projectileDir, ForceMode.Force);
+        if (Pierce <= 0) Destroy(gameObject);
     }
 
     private void OnTriggerStay(Collider other)
