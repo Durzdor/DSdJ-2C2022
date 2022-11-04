@@ -3,7 +3,11 @@ guid: 01e7731c2772040b295a3f4b2a47ff02
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - lifeCanvasPrefab: {fileID: 6004701136548698759, guid: 12664bd623a31294f8a56a054f8ba5d2,
+      type: 3}
+  - lifeBar: {instanceID: 0}
+  - visualsTransform: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

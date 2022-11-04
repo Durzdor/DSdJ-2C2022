@@ -51,14 +51,23 @@ public class Projectile : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (!collision.gameObject.CompareTag("Enemy")) return;
-        var contact = collision.contacts[0];
-        var contactPos = contact.point;
-        var projectileDir = (collision.gameObject.transform.position - contactPos).normalized;
+        var projectileDir = CalculateKnockBackDir(collision.contacts[0], collision.transform);
         projectileDir *= KnockBack * 10000;
-        collision.gameObject.GetComponent<Rigidbody>().AddForce(projectileDir, ForceMode.Force);
+        var targetRb = collision.gameObject.GetComponent<Rigidbody>();
+        collision.gameObject.GetComponent<LifeController>().TakeDamage(Damage);
+        if (targetRb != null)
+        {
+            targetRb.AddForce(projectileDir, ForceMode.Force);
+        }
         if (Pierce <= 0) Destroy(gameObject);
     }
 
+    private Vector3 CalculateKnockBackDir(ContactPoint point, Transform target)
+    {
+        var contactPos = point.point;
+        var projectileDir = (target.position - contactPos).normalized;
+        return projectileDir;
+    }
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("CanPierce"))
