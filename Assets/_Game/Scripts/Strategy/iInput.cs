@@ -1,8 +1,8 @@
-﻿
+﻿using UnityEngine;
 public interface iInput
 {    
-    float GetH { get; }
-    float GetV { get; }
+    Vector3 GetMov { get; }
+    Vector3 GetLookAt { get; }
     bool IsRunning();
     bool IsAttacking();
     void UpdateInputs();
