@@ -49,7 +49,6 @@ public class EnemyModel : Actor
 
     private void Attack()
     {
-        print("Pew pew");
         OnAttack?.Invoke();
     }
 

@@ -17,7 +17,7 @@ public class EnemyView : MonoBehaviour
 
     private void Attack()
     {
-        print("Lala");
+//        print("Lala");
         _animator.Play("Goblin Attack");
     }
 
