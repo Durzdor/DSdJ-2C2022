@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GoblinSO
   m_EditorClassIdentifier: 
   maxLife: 3
-  speed: 1
+  speed: 4
   damage: 1
   distanceToAttack: 1.5
   attackTimeLenght: 0.1
