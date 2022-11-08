@@ -3,7 +3,9 @@
 [CreateAssetMenu(fileName = "PlayerBaseStats", menuName = "CharacterStats/Player", order = 0)]
 public class CharacterStatsSO : ScriptableObject
 {
-    [SerializeField] private StatIntDictionary intStats = new StatIntDictionary()
+   
+    
+    [SerializeField] private StatIntDictionary intStats = new StatIntDictionary
     {
         { StatNames.SpreadI, 1 },
         { StatNames.PierceI, 1 },
@@ -11,13 +13,13 @@ public class CharacterStatsSO : ScriptableObject
         { StatNames.MaxHealthI, 1 }
     };
 
-    [SerializeField] private StatFloatDictionary floatStats = new StatFloatDictionary()
+    [SerializeField] private StatFloatDictionary floatStats = new StatFloatDictionary
     {
         { StatNames.FireRateF, 1 },
         { StatNames.VolleyAreaF, 1 },
         { StatNames.KnockBackF, 1 },
         { StatNames.DisruptionF, 1 },
-        { StatNames.MoveSpeedF, 1 }
+        { StatNames.MoveSpeedF, 3 }
     };
 
     public StatIntDictionary IntStatDic => intStats;
@@ -43,6 +45,6 @@ public class CharacterStatsSO : ScriptableObject
         floatStats.Add(StatNames.DisruptionF, 1);
         intStats.Add(StatNames.DamageI, 1);
         intStats.Add(StatNames.MaxHealthI, 1);
-        floatStats.Add(StatNames.MoveSpeedF, 1);
+        floatStats.Add(StatNames.MoveSpeedF, 3);
     }
 }

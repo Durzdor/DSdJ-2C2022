@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 784ce74b49c048309dc0fdfa865cd4f8, type: 3}
   m_Name: GoblinSO
   m_EditorClassIdentifier: 
-  maxLife: 3
+  maxLife: 1
   speed: 3
   damage: 1
-  distanceToAttack: 1
+  distanceToAttack: 0.9
   attackTimeLenght: 0.1
   idleTimeLenght: 0.5

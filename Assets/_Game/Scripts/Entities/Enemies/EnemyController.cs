@@ -8,6 +8,36 @@ public class EnemyController : MonoBehaviour, IPooleable
 
     private EnemyModel _enemyModel;
     private LifeController _spLifeController;
+    
+    
+    #region FSM and DT
+
+    [SerializeField] private ObstacleAvoidanceScriptableObject obstacleAvoidance;
+    public ObstacleAvoidance Behaviour { get; private set; }
+
+    private bool _waitForIdleState;
+    private FSM<EnemyStatesConstants> _fsm;
+    private INode _root;
+    private bool _previousInSightState;
+    private bool _currentInSightState;
+
+    #endregion
+
+    #region Actions
+
+    public event Action<Vector3> OnMove;
+    public event Action<Vector3> OnLookAt;
+    public event Action OnIdle;
+    public event Action OnAttack;
+
+    #endregion
+
+    #region Target
+
+    public CharacterM targetModel;
+    private Transform _targetTr => targetModel.transform;
+
+    #endregion
 
 
     private void Awake()
@@ -20,7 +50,6 @@ public class EnemyController : MonoBehaviour, IPooleable
 
     private void Start()
     {
-
         _spLifeController.OnDie += OnDieCommand;
         _spLifeController.OnTakeDamage += OnTakeDamageCommand;
         _enemyModel.Subscribe(this);
@@ -121,34 +150,6 @@ public class EnemyController : MonoBehaviour, IPooleable
         _fsm = new FSM<EnemyStatesConstants>(idle);
     }
 
-    #region Target
-
-    public CharacterM targetModel;
-    private Transform _targetTr => targetModel.transform;
-
-    #endregion
-
-    #region FSM and DT
-
-    [SerializeField] private ObstacleAvoidanceScriptableObject obstacleAvoidance;
-    public ObstacleAvoidance Behaviour { get; private set; }
-
-    private bool _waitForIdleState;
-    private FSM<EnemyStatesConstants> _fsm;
-    private INode _root;
-    private bool _previousInSightState;
-    private bool _currentInSightState;
-
-    #endregion
-
-    #region Actions
-
-    public event Action<Vector3> OnMove;
-    public event Action<Vector3> OnLookAt;
-    public event Action OnIdle;
-    public event Action OnAttack;
-
-    #endregion
 
     #region Commands
 
@@ -176,11 +177,12 @@ public class EnemyController : MonoBehaviour, IPooleable
     private void OnDieCommand()
     {
         gameObject.SetActive(false);
+        Destroy(this);
     }
 
     private void OnTakeDamageCommand(float a, float b)
     {
-        print("Aiiaaa me duele");
+        
     }
 
     public void AssignTarget(CharacterM data)
