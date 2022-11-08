@@ -14,17 +14,17 @@ public class PlayerView : MonoBehaviour
 
     public void IdleAnimation()
     {
-        
+        _animator.Play("Player Idle");
     }
 
-    public void RunAnimation(Vector3 move)
+    public void RunAnimation()
     {
-        
+     _animator.Play("Player Run");   
     }
 
     public void AttackAnimation()
     {
-        
+    // _animator.Play("Standing Aim Recoil");   
     }
 
     public void DeadAnimation()
