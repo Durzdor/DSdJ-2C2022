@@ -52,7 +52,7 @@ public class PlayerModel : Actor
         var currDir = dir * finalSpeed;
         
         _rb.velocity = currDir;
-        _view.RunAnimation(currDir.normalized);
+        _view.RunAnimation();
     }
 
 
@@ -80,8 +80,8 @@ public class PlayerModel : Actor
     {
         var look = dir.normalized.magnitude;
         if (look==0f) return;
-        dir.y = _transform.position.y;
-        _transform.forward = dir.normalized;
+        dir.y = 0f;
+        _transform.forward = dir;
     }
 
     #region Attack
