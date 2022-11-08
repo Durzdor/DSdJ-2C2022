@@ -16,6 +16,8 @@ public class LifeUI : MonoBehaviour
 
     private void ClearLifeBar()
     {
+        showLife = null;
+        StopAllCoroutines();
         lifeBar.enabled = false;
     }
 
