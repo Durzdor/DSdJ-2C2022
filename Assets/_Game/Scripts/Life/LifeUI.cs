@@ -54,4 +54,9 @@ public class LifeUI : MonoBehaviour
         ClearLifeBar();
         showLife = null;
     }
+
+    private void OnDestroy()
+    {
+        StopAllCoroutines();
+    }
 }
