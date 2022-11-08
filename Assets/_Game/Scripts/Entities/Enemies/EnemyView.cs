@@ -9,18 +9,19 @@ public class EnemyView : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
-    public void Subscribe(EnemyController controller)
+    public void Subscribe(EnemyModel model)
     {
-        controller.OnMove += Move;
-        controller.OnAttack += Attack;
+        model.OnRun += Move;
+        model.OnAttack += Attack;
     }
 
     private void Attack()
     {
+        print("Lala");
         _animator.Play("Goblin Attack");
     }
 
-    private void Move(Vector3 dir)
+    private void Move()
     {
         _animator.Play("Goblin run");
     }
