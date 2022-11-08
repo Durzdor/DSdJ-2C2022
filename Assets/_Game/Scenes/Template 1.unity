@@ -2032,7 +2032,7 @@ PrefabInstance:
     - target: {fileID: 5656878402627430295, guid: 4e75076e2b561468dba6dfd617402cc1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.577
       objectReference: {fileID: 0}
     - target: {fileID: 5656878402627430295, guid: 4e75076e2b561468dba6dfd617402cc1,
         type: 3}
@@ -2072,6 +2072,21 @@ PrefabInstance:
     - target: {fileID: 5656878402627430295, guid: 4e75076e2b561468dba6dfd617402cc1,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5656878402636384657, guid: 4e75076e2b561468dba6dfd617402cc1,
+        type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 79d25b11c3ad10d43a402cd363865aac, type: 2}
+    - target: {fileID: 5656878402636384657, guid: 4e75076e2b561468dba6dfd617402cc1,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 06c3de9184c8bf24cb5bf3efe2ffdd7e, type: 2}
+    - target: {fileID: 5656878402636384657, guid: 4e75076e2b561468dba6dfd617402cc1,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

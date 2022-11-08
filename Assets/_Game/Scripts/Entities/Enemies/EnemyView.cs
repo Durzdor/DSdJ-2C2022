@@ -11,6 +11,17 @@ public class EnemyView : MonoBehaviour
 
     public void Subscribe(EnemyController controller)
     {
-        // eventos del controlador
+        controller.OnMove += Move;
+        controller.OnAttack += Attack;
+    }
+
+    private void Attack()
+    {
+        _animator.Play("Goblin Attack");
+    }
+
+    private void Move(Vector3 dir)
+    {
+        _animator.Play("Goblin run");
     }
 }
