@@ -20,12 +20,9 @@ public class EnemyController : MonoBehaviour, IPooleable
 
     private void Start()
     {
-        //  targetModel = GameManager.instance.Character;
-        // if (targetModel != null)
-        // {
-        //     InitializeOBS();
-        // }
+
         _spLifeController.OnDie += OnDieCommand;
+        _spLifeController.OnTakeDamage += OnTakeDamageCommand;
         _enemyModel.Subscribe(this);
         InitDecisionTree();
         InitFsm();
@@ -179,6 +176,11 @@ public class EnemyController : MonoBehaviour, IPooleable
     private void OnDieCommand()
     {
         gameObject.SetActive(false);
+    }
+
+    private void OnTakeDamageCommand(float a, float b)
+    {
+        print("Aiiaaa me duele");
     }
 
     public void AssignTarget(CharacterM data)

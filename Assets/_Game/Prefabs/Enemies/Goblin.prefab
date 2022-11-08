@@ -1285,11 +1285,11 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5656878402626941729}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: b69174d668ba02d44b14a084b217670a, type: 3}
-  m_Controller: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 79d25b11c3ad10d43a402cd363865aac, type: 2}
+  m_Controller: {fileID: 9100000, guid: 06c3de9184c8bf24cb5bf3efe2ffdd7e, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -1310,7 +1310,7 @@ MonoBehaviour:
   timeToShow: 0.3
   lifeCanvasPrefab: {fileID: 6004701136548698759, guid: 12664bd623a31294f8a56a054f8ba5d2,
     type: 3}
-  visualsTransform: {fileID: 0}
+  visualsTransform: {fileID: 7014853249230736943}
 --- !u!114 &-2225726777401642997
 MonoBehaviour:
   m_ObjectHideFlags: 0
