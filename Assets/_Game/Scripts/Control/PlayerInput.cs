@@ -14,6 +14,9 @@ public class PlayerInput : MonoBehaviour , iInput
     public Vector3 GetMov => _movement;
     public Vector3 GetLookAt => _lookingAt;
     private bool IsMoving => _currMovementInput!=Vector3.zero;
+
+    [SerializeField]
+    private float sensibility = 1000f;
     #endregion
     private void Awake()
     {
@@ -31,7 +34,7 @@ public class PlayerInput : MonoBehaviour , iInput
 
     private void MouseMoving(InputAction.CallbackContext ctx)
     {
-        if (Camera.main != null) _lookingAt = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        if (Camera.main != null) _lookingAt = Camera.main.ScreenToWorldPoint((Vector3)Mouse.current.position.ReadValue() + Vector3.forward * sensibility);
     }
 
     #region Events Methods
