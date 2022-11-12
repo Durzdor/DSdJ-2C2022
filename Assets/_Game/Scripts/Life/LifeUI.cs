@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LifeUI : MonoBehaviour
+public class LifeUI : CanvasFiller
 {
+<<<<<<< Updated upstream
     [SerializeField] private float timeToShow;
     [SerializeField]private GameObject lifeCanvasPrefab;
     private Image lifeBar;
@@ -24,11 +25,13 @@ public class LifeUI : MonoBehaviour
         lifeBar.enabled = true;
 
     }
+=======
+>>>>>>> Stashed changes
     public void Initialize(LifeController controller)
     {
         SuscribeEvents(controller);
-        currCanvas = Instantiate(lifeCanvasPrefab, visualsTransform);
-        lifeBar = currCanvas.GetComponentInChildren<Image>();
+        currCanvas = Instantiate(canvasPrefab, visualsTransform);
+        fillImage = currCanvas.GetComponentInChildren<Image>();
         ClearLifeBar();
     }
 
@@ -37,6 +40,7 @@ public class LifeUI : MonoBehaviour
         controller.OnTakeDamage += UpdateCanvas;
         controller.OnDie += ClearLifeBar;
     }
+<<<<<<< Updated upstream
     private void UpdateCanvas(float currLife, float maxLife)
     {
         lifeBar.fillAmount = currLife / maxLife;
@@ -54,4 +58,6 @@ public class LifeUI : MonoBehaviour
         ClearLifeBar();
         showLife = null;
     }
+=======
+>>>>>>> Stashed changes
 }
