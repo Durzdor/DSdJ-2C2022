@@ -92,10 +92,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01e7731c2772040b295a3f4b2a47ff02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToShow: 3
-  lifeCanvasPrefab: {fileID: 6004701136548698759, guid: 12664bd623a31294f8a56a054f8ba5d2,
-    type: 3}
   visualsTransform: {fileID: 957244553790806425}
+  canvasPrefab: {fileID: 6004701136548698759, guid: 12664bd623a31294f8a56a054f8ba5d2,
+    type: 3}
+  timeToShow: 3
 --- !u!95 &6789800477279120870
 Animator:
   serializedVersion: 3
