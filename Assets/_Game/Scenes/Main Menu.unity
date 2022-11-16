@@ -9811,6 +9811,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 8478570185576491773, guid: 734b9bf1695f78d48bc413968cb20d15,
+        type: 3}
+      propertyPath: contactLayers.m_Bits
+      value: 8192
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 734b9bf1695f78d48bc413968cb20d15, type: 3}
 --- !u!1001 &1270310781

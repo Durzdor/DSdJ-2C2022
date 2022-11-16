@@ -7,7 +7,7 @@ public class CharacterM : MonoBehaviour, IVel
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private GameObject volleyPrefab;
-
+    [SerializeField] private LayerMask contactLayers;
 
     public Rigidbody RigidBody { get; private set; }
     public CharacterStats Stats { get; private set; }
@@ -92,7 +92,7 @@ public class CharacterM : MonoBehaviour, IVel
     {
         var go = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
         var projectile = go.GetComponent<Projectile>();
-        projectile.StatSetup(Stats.TotalDamage, Stats.TotalPierce, Stats.TotalKnockBack, Stats.TotalDisruption,
+        projectile.StatSetup(Stats.TotalDamage, Stats.TotalPierce, Stats.TotalKnockBack,contactLayers,Stats.TotalDisruption,
             Stats.DisruptionDuration);
         projectile.transform.forward = Quaternion.Euler(0f, angle, 0f) * transform.forward;
     }
