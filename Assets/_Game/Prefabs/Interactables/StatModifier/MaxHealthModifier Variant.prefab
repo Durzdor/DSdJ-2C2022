@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 8120622712652703760, guid: 37b2fddc46e742041b440ec5d6542314,
         type: 3}
       propertyPath: m_Name
-      value: MaxHealthModifier
+      value: MaxHealthModifier Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8120622712652703761, guid: 37b2fddc46e742041b440ec5d6542314,
         type: 3}
@@ -94,3 +94,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37b2fddc46e742041b440ec5d6542314, type: 3}
+--- !u!1 &4404976559907534291 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8120622712652703760, guid: 37b2fddc46e742041b440ec5d6542314,
+    type: 3}
+  m_PrefabInstance: {fileID: 5589989145294921155}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &-5547387150890760362
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4404976559907534291}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0e9d631ba56054d26900ace2aef3e990, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
