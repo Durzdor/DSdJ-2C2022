@@ -4,13 +4,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LifeUI : CanvasFiller
+public class LifeUI : MonoBehaviour
 {
+    [SerializeField] private float timeToShow;
+    [SerializeField]private GameObject lifeCanvasPrefab;
+    private Image lifeBar;
+    [SerializeField]private Transform visualsTransform;
+    private GameObject currCanvas;
+    private Coroutine showLife;
+    
+
+    private void ClearLifeBar()
+    {
+        showLife = null;
+        StopAllCoroutines();
+        lifeBar.enabled = false;
+    }
+
+    private void FillLifeBar()
+    {
+        lifeBar.enabled = true;
+
+    }
     public void Initialize(LifeController controller)
     {
         SuscribeEvents(controller);
-        currCanvas = Instantiate(canvasPrefab, visualsTransform);
-        fillImage = currCanvas.GetComponentInChildren<Image>();
+        currCanvas = Instantiate(lifeCanvasPrefab, visualsTransform);
+        lifeBar = currCanvas.GetComponentInChildren<Image>();
         ClearLifeBar();
     }
 
@@ -18,5 +38,27 @@ public class LifeUI : CanvasFiller
     {
         controller.OnTakeDamage += UpdateCanvas;
         controller.OnDie += ClearLifeBar;
+    }
+    private void UpdateCanvas(float currLife, float maxLife)
+    {
+        lifeBar.fillAmount = currLife / maxLife;
+        print(currLife / maxLife);
+        if (showLife == null)
+        {
+            showLife = StartCoroutine(ShowLifeCorroutine());
+        }
+    }
+
+    private IEnumerator ShowLifeCorroutine()
+    {
+        FillLifeBar();
+        yield return new WaitForSeconds(timeToShow);
+        ClearLifeBar();
+        showLife = null;
+    }
+
+    private void OnDestroy()
+    {
+        StopAllCoroutines();
     }
 }

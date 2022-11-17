@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   self: {fileID: 0}
   target: {fileID: 0}
-  radius: 3
+  radius: 2
   maxObjs: 5
   obstaclesMask:
     serializedVersion: 2

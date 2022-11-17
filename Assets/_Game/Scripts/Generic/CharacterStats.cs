@@ -15,8 +15,8 @@ public class CharacterStats : MonoBehaviour
     [SerializeField] private StatIntDictionary intDictionaryBuffs = new StatIntDictionary();
     [SerializeField] private StatIntDictionary intDictionaryDeBuffs = new StatIntDictionary();
     [SerializeField] private StatIntDictionary intDictionaryTempBuffs = new StatIntDictionary();
-    [SerializeField] private StatIntDictionary intDictionaryTempDeBuffs = new StatIntDictionary();
-
+    [SerializeField] private StatIntDictionary intDictionaryTempDeBuffs;
+    private void InitializeDictionaries(){}
     private Coroutine _modifierCoroutine;
 
     #region Min Total Variable Value

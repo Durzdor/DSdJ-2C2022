@@ -36,6 +36,7 @@ public class LifeController : MonoBehaviour
         if (_currentLife - damage <= 0)
         {
             Die();
+            return;
         }
         _currentLife -= damage;
         OnTakeDamage?.Invoke(_currentLife, _maxLife);
