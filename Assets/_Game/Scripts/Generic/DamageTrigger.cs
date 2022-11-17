@@ -61,12 +61,12 @@ public class DamageTrigger : MonoBehaviour
 
     private void HealthDamage(GameObject other)
     {
-        var hp = other.GetComponent<Health>();
-        hp.TakeDamage(_damage, INVULNERABILITY_TIME);
+        var hp = other.GetComponent<LifeController>();
+        hp.TakeDamage(_damage);
     }
 
     private bool HasHealth(GameObject go)
     {
-        return go.GetComponent<Health>() != null;
+        return go.GetComponent<LifeController>() != null;
     }
 }
