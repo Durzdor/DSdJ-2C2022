@@ -14,6 +14,7 @@ public class CharacterM : MonoBehaviour, IVel
     [SerializeField] private GameObject volleyPrefab;
     [SerializeField] private LayerMask contactLayers;
     [SerializeField] private bool IsometricMovement;
+    [SerializeField] private GameObject mouseIndicator;
     public Rigidbody RigidBody { get; private set; }
     public CharacterStats Stats { get; private set; }
     public LifeController Health { get; private set; }
@@ -30,6 +31,7 @@ public class CharacterM : MonoBehaviour, IVel
         var lookAt = GetMouseWorldPosition();
         lookAt.y = transform.position.y;
         transform.LookAt(lookAt);
+        mouseIndicator.transform.position = lookAt;
     }
     private void Awake()
     {

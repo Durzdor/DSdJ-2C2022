@@ -5,6 +5,8 @@ public class EnemyModel : Actor
 {
     public EnemySO data;
     [SerializeField] private LineOfSightAI _lineOfSightAI;
+    [SerializeField] private Transform attackPoint;
+    [SerializeField] private LayerMask contactLayers;
     private Rigidbody _rb;
     private Transform _transform;
     private EnemyView _view;
@@ -44,12 +46,23 @@ public class EnemyModel : Actor
 
     private void LookAt(Vector3 dir)
     {
+        dir.y = transform.position.y;
         _transform.forward = dir.normalized;
     }
 
     private void Attack()
     {
         OnAttack?.Invoke();
+        print("Atacamo");
+        var col = Physics.OverlapSphere(attackPoint.position, 1, contactLayers);
+        if (col.Length > 0)
+        {
+            foreach (var item in col)
+            {
+                print("Le pegamo");
+                item.GetComponent<LifeController>().TakeDamage(data.damage);
+            }
+        }
     }
 
     private void Die()

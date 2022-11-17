@@ -10,9 +10,9 @@ public class CanvasFiller : MonoBehaviour
         [SerializeField]protected GameObject canvasPrefab;
         [SerializeField] protected float timeToShow;
         [SerializeField]protected Image fillImage;
+        [SerializeField] protected bool isPermanent = false;
         protected Coroutine showCanvas;
         protected GameObject currCanvas;
-
         protected virtual void ClearLifeBar()
         {
             showCanvas = null;
@@ -39,6 +39,7 @@ public class CanvasFiller : MonoBehaviour
         protected virtual void UpdateCanvas(float currentValue, float maxValue)
         {
             fillImage.fillAmount = currentValue / maxValue;
+            if(isPermanent){return;}
             showCanvas ??= StartCoroutine(ShowCanvasForTime());
         }
     }

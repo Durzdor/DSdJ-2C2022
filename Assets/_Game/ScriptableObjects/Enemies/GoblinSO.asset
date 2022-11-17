@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxLife: 1
   speed: 3
-  damage: 1
-  distanceToAttack: 0.9
+  damage: 3
+  distanceToAttack: 1
   attackTimeLenght: 0.1
   idleTimeLenght: 0.5

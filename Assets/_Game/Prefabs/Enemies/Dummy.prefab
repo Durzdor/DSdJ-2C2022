@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b745588b8d0ad41509180f0d0dd9f9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLife: 10
+  maxLife: 5
   recoveryTime: 1
   visuals: {fileID: 9115900820692796860}
   dissapearParticles: {fileID: 4171087593208069711}
@@ -9562,8 +9562,7 @@ Transform:
 --- !u!198 &4171087593208069711
 ParticleSystem:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 198355779183106702, guid: 3b517eddec185dd4a830743a742ad00b,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4262256852467413959}
