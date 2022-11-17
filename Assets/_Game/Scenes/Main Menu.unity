@@ -625,7 +625,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 41280003}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -8.1}
+  m_LocalPosition: {x: 0, y: 0, z: -6.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1859713056}
@@ -4555,8 +4555,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 568818078}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.22932148, y: 0.6576872, z: 14.68}
+  m_LocalRotation: {x: -0, y: 0.6196938, z: -0, w: 0.7848437}
+  m_LocalPosition: {x: 14.332798, y: 0.6576872, z: 3.1821105}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4358117543199658956}
@@ -4566,7 +4566,7 @@ Transform:
   - {fileID: 251604618}
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 76.588, z: 0}
 --- !u!1 &573698693
 GameObject:
   m_ObjectHideFlags: 0
@@ -4654,8 +4654,8 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 573698693}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: 0.6196938, z: -0, w: 0.7848437}
+  m_LocalPosition: {x: 0, y: 0, z: -0.0000018553262}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 997308002}
@@ -4664,10 +4664,10 @@ RectTransform:
   - {fileID: 1496749772}
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 76.588, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.000001464919, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &580136055
@@ -6161,7 +6161,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 781679656}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -4}
+  m_LocalPosition: {x: 0, y: 0, z: -3.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 361416035}
@@ -6423,17 +6423,17 @@ PrefabInstance:
     - target: {fileID: 684937960041298233, guid: 4b1bab87853de1c4584d1442dda33472,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.096153
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 684937960041298233, guid: 4b1bab87853de1c4584d1442dda33472,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 71.53018
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 684937960041298233, guid: 4b1bab87853de1c4584d1442dda33472,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 30.533154
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 684937960041298233, guid: 4b1bab87853de1c4584d1442dda33472,
         type: 3}
@@ -9811,11 +9811,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterPlayer
       objectReference: {fileID: 0}
-    - target: {fileID: 8478570185576491773, guid: 734b9bf1695f78d48bc413968cb20d15,
-        type: 3}
-      propertyPath: contactLayers.m_Bits
-      value: 8192
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 734b9bf1695f78d48bc413968cb20d15, type: 3}
 --- !u!1001 &1270310781
@@ -11468,7 +11463,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1496749771}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -4}
+  m_LocalPosition: {x: 0, y: 0, z: -3.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1505422736}
@@ -11477,7 +11472,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9.37, y: 0.47000003}
+  m_AnchoredPosition: {x: 7.49, y: 0.47}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1496749773

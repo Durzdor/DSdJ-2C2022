@@ -30,12 +30,12 @@ public class CharacterC : MonoBehaviour
 
     private void Start()
     {
-        CharacterM.Health.OnConsumed += () => print($"Player HP: {CharacterM.Health.CurrentHealth}");
+        //CharacterM.Health.OnConsumed += () => print($"Player HP: {CharacterM.Health.CurrentHealth}");
     }
 
     private void Update()
     {
-        LookAtMouse();
+        LookAtMouseCommand();
         MoveUpdate();
         ShootUpdate();
         CharacterInteractionUpdate();
@@ -51,6 +51,11 @@ public class CharacterC : MonoBehaviour
             CharacterM.Move(Vector3.zero);
     }
 
+    private void LookAtMouseCommand()
+    {
+        CharacterM.LookAtMouse();
+    }
+
     private void ShootUpdate()
     {
         _firingInterval -= Time.deltaTime;
@@ -61,14 +66,6 @@ public class CharacterC : MonoBehaviour
                 _firingInterval = CharacterM.Stats.TotalFireRate;
             }
     }
-
-    private void LookAtMouse()
-    {
-        var lookAt = CharacterM.GetMouseWorldPosition();
-        lookAt.y = transform.position.y;
-        transform.LookAt(lookAt);
-    }
-
     private void CharacterInteractionUpdate()
     {
         if (Input.GetKeyDown(KeyCode.V) && IsInInteractRange)

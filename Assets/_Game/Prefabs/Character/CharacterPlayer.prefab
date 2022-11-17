@@ -1590,9 +1590,10 @@ GameObject:
   - component: {fileID: 8478570185576491775}
   - component: {fileID: 8478570185576491774}
   - component: {fileID: 8478570185576491773}
-  - component: {fileID: 6244460207300483484}
   - component: {fileID: 7650979803310868317}
   - component: {fileID: 1988413399}
+  - component: {fileID: 376682729}
+  - component: {fileID: 376682730}
   m_Layer: 8
   m_Name: CharacterPlayer
   m_TagString: Player
@@ -1665,19 +1666,10 @@ MonoBehaviour:
     type: 3}
   volleyPrefab: {fileID: 1084954552513834373, guid: 257fa0c0500d3eb49901c65f14ad3c4e,
     type: 3}
---- !u!114 &6244460207300483484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8478570185576491772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0c30c95745291949b73d754aa30339d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 0
+  contactLayers:
+    serializedVersion: 2
+    m_Bits: 8192
+  IsometricMovement: 1
 --- !u!136 &7650979803310868317
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1813,6 +1805,36 @@ MonoBehaviour:
     _FreeCount: 0
     _Keys: 00000000030000000600000007000000000000000000000000000000
     _Values: 01000000010000000100000001000000000000000000000000000000
+--- !u!114 &376682729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8478570185576491772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7553e8fbbdf049ec934e0bfc0a3942e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInmortal: 0
+--- !u!114 &376682730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8478570185576491772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01e7731c2772040b295a3f4b2a47ff02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visualsTransform: {fileID: 543450652942506290}
+  canvasPrefab: {fileID: 6004701136548698759, guid: 12664bd623a31294f8a56a054f8ba5d2,
+    type: 3}
+  timeToShow: 0
+  fillImage: {fileID: 0}
 --- !u!1 &8618280738358079098
 GameObject:
   m_ObjectHideFlags: 0

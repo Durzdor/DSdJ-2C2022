@@ -71,7 +71,7 @@ public class EnemyController : MonoBehaviour, IPooleable
         var DidSightChangeToAttack = new QuestionNode(SightStateChanged, goToChase, attemptPlayerKill);
         var IsInSight = new QuestionNode(LastInSightState, DidSightChangeToAttack, attemptPlayerKill);
         
-        var IsPlayerAlive = new QuestionNode(() => targetModel.Health.IsDead, goToIdle, IsInSight);
+        var IsPlayerAlive = new QuestionNode(() => targetModel.Health.IsAlive(), IsInSight, goToIdle);
          
         _root = IsPlayerAlive;
     }   
@@ -140,7 +140,7 @@ public class EnemyController : MonoBehaviour, IPooleable
     // Update is called once per frame
     void Update()
     {
-        if (targetModel.Health.IsDead) return;
+        if (!targetModel.Health.IsAlive()) return;
     //    print("mira que te como hno");
         _fsm.UpdateState(); 
 
