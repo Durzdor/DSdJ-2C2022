@@ -2,16 +2,22 @@ using UnityEngine;
 
 public class CharacterM : MonoBehaviour, IVel
 {
+    public static class Helpers 
+    {
+        private static Matrix4x4 _isoMatrix = Matrix4x4.Rotate(Quaternion.Euler(0, 45, 0));
+        public static Vector3 ToIso(Vector3 input) => _isoMatrix.MultiplyPoint3x4(input);
+    }
     private Camera cameraObject;
     [SerializeField] private LayerMask mouseColliderLayerMask;
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private GameObject volleyPrefab;
-
-
+    [SerializeField] private LayerMask contactLayers;
+    [SerializeField] private bool IsometricMovement;
+    [SerializeField] private GameObject mouseIndicator;
     public Rigidbody RigidBody { get; private set; }
     public CharacterStats Stats { get; private set; }
-    public Health Health { get; private set; }
+    public LifeController Health { get; private set; }
 
     private float _lastMoveMagnitude;
 
@@ -20,26 +26,40 @@ public class CharacterM : MonoBehaviour, IVel
         var ray = cameraObject.ScreenPointToRay(Input.mousePosition);
         return Physics.Raycast(ray, out var raycastHit, 100f, mouseColliderLayerMask) ? raycastHit.point : Vector3.zero;
     }
-
+    public void LookAtMouse()
+    {
+        var lookAt = GetMouseWorldPosition();
+        lookAt.y = transform.position.y;
+        transform.LookAt(lookAt);
+        mouseIndicator.transform.position = lookAt;
+    }
     private void Awake()
     {
         cameraObject = Camera.main;
         //if (cameraObject != null) cameraObject.gameObject.GetComponent<CameraController>().AssignTarget(this.transform);
         RigidBody = GetComponent<Rigidbody>();  
         Stats = GetComponent<CharacterStats>();
-        Health = GetComponent<Health>();
+        Health = GetComponent<LifeController>();
     }
 
     private void Start()
     {
-        Health.SetStartingMaxHealth(Stats.MaxHealth);
+        Health.AssignLife(Stats.MaxHealth);
     }
 
     public void Move(Vector3 dir)
     {
         var value = Vector3.ClampMagnitude(dir, 1);
-        RigidBody.velocity = new Vector3(value.x * Stats.TotalMoveSpeed, RigidBody.velocity.y,
-            value.z * Stats.TotalMoveSpeed);
+        if (IsometricMovement)
+        {
+            RigidBody.MovePosition(transform.position + Helpers.ToIso(value) * Stats.TotalMoveSpeed * Time.deltaTime);
+        }
+        else
+        {
+            RigidBody.velocity = new Vector3(value.x * Stats.TotalMoveSpeed, RigidBody.velocity.y,
+                value.z * Stats.TotalMoveSpeed);
+        }
+
     }
 
     public void Shoot()
@@ -92,7 +112,7 @@ public class CharacterM : MonoBehaviour, IVel
     {
         var go = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
         var projectile = go.GetComponent<Projectile>();
-        projectile.StatSetup(Stats.TotalDamage, Stats.TotalPierce, Stats.TotalKnockBack, Stats.TotalDisruption,
+        projectile.StatSetup(Stats.TotalDamage, Stats.TotalPierce, Stats.TotalKnockBack,contactLayers,Stats.TotalDisruption,
             Stats.DisruptionDuration);
         projectile.transform.forward = Quaternion.Euler(0f, angle, 0f) * transform.forward;
     }

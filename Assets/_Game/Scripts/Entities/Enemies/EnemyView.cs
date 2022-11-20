@@ -9,8 +9,20 @@ public class EnemyView : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
-    public void Subscribe(EnemyController controller)
+    public void Subscribe(EnemyModel model)
     {
-        // eventos del controlador
+        model.OnRun += Move;
+        model.OnAttack += Attack;
+    }
+
+    private void Attack()
+    {
+//        print("Lala");
+        _animator.Play("Goblin Attack");
+    }
+
+    private void Move()
+    {
+        _animator.Play("Goblin run");
     }
 }
