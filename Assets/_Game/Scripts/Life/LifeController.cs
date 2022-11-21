@@ -1,7 +1,5 @@
 using UnityEngine;
 using System;
-using UnityEngine.UI;
-
 [RequireComponent(typeof (LifeUI))]
 public class LifeController : MonoBehaviour
 { 
@@ -9,8 +7,7 @@ public class LifeController : MonoBehaviour
     private float _maxLife;
     private LifeUI _lifeUI;
     public event Action OnDie;
-    public event Action<float,float> OnTakeDamage;
-    public Image HealthUI;
+    public event Action<float,float> OnTakeDamage; 
 
     public bool isInmortal;
     public void AssignLife(float data)
@@ -43,7 +40,6 @@ public class LifeController : MonoBehaviour
         }
         _currentLife -= damage;
         OnTakeDamage?.Invoke(_currentLife, _maxLife);
-        HealthUI.fillAmount = _currentLife / _maxLife;
         }
     
     public bool IsAlive()

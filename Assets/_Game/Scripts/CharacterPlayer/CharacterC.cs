@@ -1,7 +1,6 @@
 using System;
 using JetBrains.Annotations;
 using UnityEngine;
-using UnityEngine.UI;
 [RequireComponent(typeof(CharacterM),typeof(CharacterV))]
 public class CharacterC : MonoBehaviour
 {
@@ -10,8 +9,7 @@ public class CharacterC : MonoBehaviour
     [CanBeNull] public Interactable Interactable { get; set; }
     private bool _isInInteractRange;
     public event Action OnCharacterInteract;
-    public event Action<InteractionType> OnCharacterInteractRange;    
-    public Image fireRateUI;
+    public event Action<InteractionType> OnCharacterInteractRange;
 
     public bool IsInInteractRange
     {
@@ -60,17 +58,14 @@ public class CharacterC : MonoBehaviour
 
     private void ShootUpdate()
     {
-        fireRateUI.fillAmount += Time.deltaTime * CharacterM.Stats.TotalFireRate;
-        _firingInterval -= Time.deltaTime;        
+        _firingInterval -= Time.deltaTime;
         if (_firingInterval <= 0f)
             if (Input.GetButton("Fire1"))
-            {                
-                CharacterM.Shoot();                
+            {
+                CharacterM.Shoot();
                 _firingInterval = CharacterM.Stats.TotalFireRate;
-                fireRateUI.fillAmount = 0;
             }
     }
-    
     private void CharacterInteractionUpdate()
     {
         if (Input.GetKeyDown(KeyCode.V) && IsInInteractRange)
