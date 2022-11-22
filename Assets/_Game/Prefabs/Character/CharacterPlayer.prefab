@@ -1625,6 +1625,7 @@ GameObject:
   - component: {fileID: 1988413399}
   - component: {fileID: 376682729}
   - component: {fileID: 7502541024094564749}
+  - component: {fileID: 763761325}
   m_Layer: 8
   m_Name: CharacterPlayer
   m_TagString: Player
@@ -1678,6 +1679,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd61d2f7a190d954d88029d55d622421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FirstSkill: 257
+  SecondSkill: 258
+  ThirdSkill: 259
 --- !u!114 &8478570185576491773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1865,6 +1869,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8027ffb68bf714f822960f3dc4bad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &763761325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8478570185576491772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4b52b5a61774fce8ee6a4fe126cf614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillsPrefabs:
+  - {fileID: 8472114834585805936, guid: 463b18ed21e02ff49a7e8d265ac40eb8, type: 3}
+  - {fileID: 7370984365373883922, guid: 76e86a44729387941ac805e86603d0d7, type: 3}
+  - {fileID: 5314160985664189163, guid: c7109b31ec965f342b8a4a64266c5c5c, type: 3}
+  currentSkills: []
+  skillCanvas: {fileID: 5433255677326351912, guid: 1bc5096824cc8574f8911d467d173128,
+    type: 3}
 --- !u!1 &8618280738358079098
 GameObject:
   m_ObjectHideFlags: 0
