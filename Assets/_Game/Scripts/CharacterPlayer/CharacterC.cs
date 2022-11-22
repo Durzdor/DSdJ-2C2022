@@ -4,12 +4,16 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterM),typeof(CharacterV))]
 public class CharacterC : MonoBehaviour
 {
+    [SerializeField] private KeyCode FirstSkill;
+    [SerializeField] private KeyCode SecondSkill;
+    [SerializeField] private KeyCode ThirdSkill;
     public CharacterM CharacterM { get; private set; }
     private float _firingInterval;
     [CanBeNull] public Interactable Interactable { get; set; }
     private bool _isInInteractRange;
     public event Action OnCharacterInteract;
     public event Action<InteractionType> OnCharacterInteractRange;
+    private SkillManager skillManager;
 
     public bool IsInInteractRange
     {
@@ -26,6 +30,7 @@ public class CharacterC : MonoBehaviour
     private void Awake()
     {
         CharacterM = GetComponent<CharacterM>();
+        skillManager = GetComponent<SkillManager>();
     }
 
     private void Start()
@@ -39,6 +44,7 @@ public class CharacterC : MonoBehaviour
         MoveUpdate();
         ShootUpdate();
         CharacterInteractionUpdate();
+        SkillUseUpdate();
     }
 
     private void MoveUpdate()
@@ -49,6 +55,22 @@ public class CharacterC : MonoBehaviour
             CharacterM.Move(new Vector3(h, 0, v));
         else
             CharacterM.Move(Vector3.zero);
+    }
+
+    private void SkillUseUpdate()
+    {
+        if (Input.GetKey(FirstSkill))
+        {
+            skillManager.UseSkill(0);
+        }        
+        if (Input.GetKey(SecondSkill))
+        {
+            skillManager.UseSkill(1);
+        }        
+        if (Input.GetKey(ThirdSkill))
+        {
+            skillManager.UseSkill(2);
+        }
     }
 
     private void LookAtMouseCommand()

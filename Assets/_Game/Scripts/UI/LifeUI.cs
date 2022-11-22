@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class LifeUI : CanvasFiller
 {
-    private Coroutine showLife;
-    
     public void Initialize(LifeController controller)
     {
         SuscribeEvents(controller);

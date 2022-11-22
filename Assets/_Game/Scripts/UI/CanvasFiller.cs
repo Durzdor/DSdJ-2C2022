@@ -35,7 +35,6 @@ public class CanvasFiller : MonoBehaviour
         }
         protected virtual void UpdateCanvas(float currentValue, float maxValue)
         {
-            print("SI");
             fillImage.fillAmount = currentValue / maxValue;
             if(isPermanent){return;}
             showCanvas ??= StartCoroutine(ShowCanvasForTime());

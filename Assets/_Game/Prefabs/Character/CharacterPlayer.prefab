@@ -1703,7 +1703,7 @@ MonoBehaviour:
     m_Bits: 8192
   IsometricMovement: 1
   mouseIndicator: {fileID: 4053244089726696405}
-  lifeCanvas: {fileID: 1891917145147232196, guid: 93cbda7ba4c894d8f83ebab97123b744,
+  lifeCanvas: {fileID: 3178968154878220676, guid: bd592c2651b2d8f44aedb518b53323f2,
     type: 3}
 --- !u!136 &7650979803310868317
 CapsuleCollider:

@@ -6205,6 +6205,31 @@ Transform:
   m_Father: {fileID: 251604618}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &763761324 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8478570185576491772, guid: 734b9bf1695f78d48bc413968cb20d15,
+    type: 3}
+  m_PrefabInstance: {fileID: 1266631206}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &763761325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763761324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4b52b5a61774fce8ee6a4fe126cf614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillsPrefabs:
+  - {fileID: 8472114834585805936, guid: 463b18ed21e02ff49a7e8d265ac40eb8, type: 3}
+  - {fileID: 7370984365373883922, guid: 76e86a44729387941ac805e86603d0d7, type: 3}
+  - {fileID: 5314160985664189163, guid: c7109b31ec965f342b8a4a64266c5c5c, type: 3}
+  currentSkills: []
+  skillCanvas: {fileID: 5433255677326351912, guid: 1bc5096824cc8574f8911d467d173128,
+    type: 3}
 --- !u!1001 &768709655
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6765,7 +6790,7 @@ MonoBehaviour:
   m_FocusTracking: 0
   m_FocusTarget: {fileID: 0}
   m_FocusOffset: 0
-  m_Profile: {fileID: 11400000, guid: 4ebb3032f1096fe4ba93c0caff231638, type: 2}
+  m_Profile: {fileID: 0}
 --- !u!1001 &806023112
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10094,6 +10119,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CharacterPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 8478570185576491774, guid: 734b9bf1695f78d48bc413968cb20d15,
+        type: 3}
+      propertyPath: FirstSkill
+      value: 257
+      objectReference: {fileID: 0}
+    - target: {fileID: 8478570185576491774, guid: 734b9bf1695f78d48bc413968cb20d15,
+        type: 3}
+      propertyPath: ThirdSkill
+      value: 259
+      objectReference: {fileID: 0}
+    - target: {fileID: 8478570185576491774, guid: 734b9bf1695f78d48bc413968cb20d15,
+        type: 3}
+      propertyPath: SecondSkill
+      value: 258
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 734b9bf1695f78d48bc413968cb20d15, type: 3}
