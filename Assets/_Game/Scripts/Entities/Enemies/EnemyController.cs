@@ -64,7 +64,6 @@ public class EnemyController : MonoBehaviour, IPooleable
     private void Update()
     {
         if (!targetModel.Health.IsAlive()) return;
-        //    print("mira que te como hno");
         _fsm.UpdateState();
     }
 
