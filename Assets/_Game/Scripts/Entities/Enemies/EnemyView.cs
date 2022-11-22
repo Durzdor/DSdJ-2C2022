@@ -18,11 +18,11 @@ public class EnemyView : MonoBehaviour
     private void Attack()
     {
 //        print("Lala");
-        _animator.Play("Goblin Attack");
+        _animator.Play("Attack");
     }
 
     private void Move()
     {
-        _animator.Play("Goblin run");
+        _animator.Play("Run");
     }
 }
