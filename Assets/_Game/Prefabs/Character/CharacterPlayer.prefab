@@ -1624,7 +1624,6 @@ GameObject:
   - component: {fileID: 7650979803310868317}
   - component: {fileID: 1988413399}
   - component: {fileID: 376682729}
-  - component: {fileID: 376682730}
   - component: {fileID: 7502541024094564749}
   m_Layer: 8
   m_Name: CharacterPlayer
@@ -1704,6 +1703,8 @@ MonoBehaviour:
     m_Bits: 8192
   IsometricMovement: 1
   mouseIndicator: {fileID: 4053244089726696405}
+  lifeCanvas: {fileID: 1891917145147232196, guid: 93cbda7ba4c894d8f83ebab97123b744,
+    type: 3}
 --- !u!136 &7650979803310868317
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1852,24 +1853,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInmortal: 0
---- !u!114 &376682730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8478570185576491772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01e7731c2772040b295a3f4b2a47ff02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  visualsTransform: {fileID: 543450652942506290}
-  canvasPrefab: {fileID: 6633592538597414782, guid: 93cbda7ba4c894d8f83ebab97123b744,
-    type: 3}
-  timeToShow: 0
-  fillImage: {fileID: 0}
-  isPermanent: 1
 --- !u!114 &7502541024094564749
 MonoBehaviour:
   m_ObjectHideFlags: 0

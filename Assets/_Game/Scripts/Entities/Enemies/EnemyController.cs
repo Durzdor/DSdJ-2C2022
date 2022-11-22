@@ -5,7 +5,8 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour, IPooleable
 {
     [SerializeField] private EnemySO _enemyStats;
-
+    [SerializeField] private LifeUI lifeBarCanvas;
+    [SerializeField] private Transform visuals;
     private EnemyModel _enemyModel;
     private LifeController _spLifeController;
     
@@ -53,6 +54,8 @@ public class EnemyController : MonoBehaviour, IPooleable
         _spLifeController.OnDie += OnDieCommand;
         _spLifeController.OnTakeDamage += OnTakeDamageCommand;
         _enemyModel.Subscribe(this);
+        var lifeCan = Instantiate(lifeBarCanvas, visuals.transform);
+        lifeCan.Initialize(_spLifeController);;
         InitDecisionTree();
         InitFsm();
     }

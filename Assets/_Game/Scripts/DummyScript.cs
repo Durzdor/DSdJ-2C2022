@@ -12,6 +12,7 @@ public class DummyScript : MonoBehaviour
     [SerializeField] private float recoveryTime;
     [SerializeField] private GameObject visuals;
     [SerializeField] private ParticleSystem dissapearParticles;
+    [SerializeField] private LifeUI lifeCanvas;
     private void Awake()
     {
         _lifeController = GetComponent<LifeController>();
@@ -23,6 +24,8 @@ public class DummyScript : MonoBehaviour
         _lifeController.AssignLife(maxLife);
         _lifeController.OnDie += Die;
         _lifeController.OnTakeDamage += PlayTakeDamage;
+        var lifeCan = Instantiate(lifeCanvas, visuals.transform);
+        lifeCan.Initialize(_lifeController);
     }
 
     private void PlayTakeDamage(float a, float b)

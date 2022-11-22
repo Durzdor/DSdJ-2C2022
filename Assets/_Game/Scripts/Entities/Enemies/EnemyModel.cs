@@ -7,6 +7,7 @@ public class EnemyModel : Actor
     [SerializeField] private LineOfSightAI _lineOfSightAI;
     [SerializeField] private Transform attackPoint;
     [SerializeField] private LayerMask contactLayers;
+    [SerializeField] private LifeUI lifeCanvas;
     private Rigidbody _rb;
     private Transform _transform;
     private EnemyView _view;
@@ -19,6 +20,7 @@ public class EnemyModel : Actor
         _view.Subscribe(this);
         _transform = transform;
     }
+    
 
     public event Action OnRun;
     public event Action OnAttack;

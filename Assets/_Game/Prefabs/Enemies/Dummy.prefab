@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2907094126990010830}
   - component: {fileID: 2907094126990010822}
   - component: {fileID: 2907094126990010831}
-  - component: {fileID: 7929420000351851926}
   - component: {fileID: 6789800477279120870}
   - component: {fileID: 1697969709198523263}
   m_Layer: 13
@@ -80,23 +79,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000001, y: 2, z: 0.45047736}
   m_Center: {x: 0.000000059604645, y: 0, z: 0.009834133}
---- !u!114 &7929420000351851926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2907094126990010801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01e7731c2772040b295a3f4b2a47ff02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  visualsTransform: {fileID: 957244553790806425}
-  canvasPrefab: {fileID: 6004701136548698759, guid: 12664bd623a31294f8a56a054f8ba5d2,
-    type: 3}
-  timeToShow: 3
-  fillImage: {fileID: 0}
 --- !u!95 &6789800477279120870
 Animator:
   serializedVersion: 3
@@ -132,6 +114,8 @@ MonoBehaviour:
   recoveryTime: 1
   visuals: {fileID: 9115900820692796860}
   dissapearParticles: {fileID: 4171087593208069711}
+  lifeCanvas: {fileID: 5015339315215593592, guid: 12664bd623a31294f8a56a054f8ba5d2,
+    type: 3}
 --- !u!1 &3086247286463246113
 GameObject:
   m_ObjectHideFlags: 0
