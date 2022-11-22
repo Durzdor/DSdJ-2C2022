@@ -11,8 +11,7 @@ public class LifeUI : CanvasFiller
     public void Initialize(LifeController controller)
     {
         SuscribeEvents(controller);
-        currCanvas = Instantiate(canvasPrefab, visualsTransform);
-        fillImage = currCanvas.GetComponentInChildren<Image>();
+        UpdateCanvas(controller.CurrentLife,controller.MaxLife);
         if(isPermanent){return;}
         ClearLifeBar();
     }

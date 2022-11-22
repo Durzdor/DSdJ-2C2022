@@ -1276,7 +1276,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5656878402627430295}
   - component: {fileID: 5656878402636384657}
-  - component: {fileID: 175929721404256508}
   - component: {fileID: -2225726777401642997}
   - component: {fileID: -2714159217081696691}
   - component: {fileID: -181734207063611444}
@@ -1328,24 +1327,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &175929721404256508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5656878402626941729}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01e7731c2772040b295a3f4b2a47ff02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  visualsTransform: {fileID: 7014853249230736943}
-  canvasPrefab: {fileID: 6004701136548698759, guid: 12664bd623a31294f8a56a054f8ba5d2,
-    type: 3}
-  timeToShow: 0.3
-  fillImage: {fileID: 0}
-  isPermanent: 0
 --- !u!114 &-2225726777401642997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1372,6 +1353,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyStats: {fileID: 11400000, guid: 4ff3d64a585085c4fada632a5153c88c, type: 2}
+  lifeBarCanvas: {fileID: 5015339315215593592, guid: 12664bd623a31294f8a56a054f8ba5d2,
+    type: 3}
+  visuals: {fileID: 7014853249230736943}
   obstacleAvoidance: {fileID: 11400000, guid: 139aca8684b84574a809bb1c5b8b1de5, type: 2}
   targetModel: {fileID: 0}
 --- !u!114 &-181734207063611444
@@ -1392,6 +1376,8 @@ MonoBehaviour:
   contactLayers:
     serializedVersion: 2
     m_Bits: 256
+  lifeCanvas: {fileID: 5015339315215593592, guid: 12664bd623a31294f8a56a054f8ba5d2,
+    type: 3}
 --- !u!114 &2405838002777310009
 MonoBehaviour:
   m_ObjectHideFlags: 0

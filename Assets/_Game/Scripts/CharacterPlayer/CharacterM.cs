@@ -15,6 +15,7 @@ public class CharacterM : MonoBehaviour, IVel
     [SerializeField] private LayerMask contactLayers;
     [SerializeField] private bool IsometricMovement;
     [SerializeField] private GameObject mouseIndicator;
+    [SerializeField] private LifeUI lifeCanvas;
     public Rigidbody RigidBody { get; private set; }
     public CharacterStats Stats { get; private set; }
     public LifeController Health { get; private set; }
@@ -45,6 +46,8 @@ public class CharacterM : MonoBehaviour, IVel
     private void Start()
     {
         Health.AssignLife(Stats.MaxHealth);
+        var lifeCan = Instantiate(lifeCanvas, transform);
+        lifeCan.Initialize(Health);
     }
 
     public void Move(Vector3 dir)

@@ -5,15 +5,12 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class CanvasFiller : MonoBehaviour
-    {
-        [SerializeField]protected Transform visualsTransform;
-        [SerializeField]protected GameObject canvasPrefab;
-        [SerializeField] protected float timeToShow;
-        [SerializeField]protected Image fillImage;
-        [SerializeField] protected bool isPermanent = false;
-        protected Coroutine showCanvas;
-        protected GameObject currCanvas;
-        protected virtual void ClearLifeBar()
+{
+    [SerializeField] protected float timeToShow;
+    [SerializeField] protected Image fillImage;
+    [SerializeField] protected bool isPermanent = false;
+    protected Coroutine showCanvas;
+    protected virtual void ClearLifeBar()
         {
             showCanvas = null;
             StopAllCoroutines();
@@ -38,6 +35,7 @@ public class CanvasFiller : MonoBehaviour
         }
         protected virtual void UpdateCanvas(float currentValue, float maxValue)
         {
+            print("SI");
             fillImage.fillAmount = currentValue / maxValue;
             if(isPermanent){return;}
             showCanvas ??= StartCoroutine(ShowCanvasForTime());

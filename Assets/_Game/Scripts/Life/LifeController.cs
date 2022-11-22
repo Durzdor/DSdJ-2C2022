@@ -1,11 +1,13 @@
 using UnityEngine;
 using System;
-[RequireComponent(typeof (LifeUI))]
+
 public class LifeController : MonoBehaviour
-{ 
+{
     private float _currentLife;
+    public float CurrentLife => _currentLife;
+
     private float _maxLife;
-    private LifeUI _lifeUI;
+    public float MaxLife => _maxLife;
     public event Action OnDie;
     public event Action<float,float> OnTakeDamage; 
 
@@ -14,16 +16,6 @@ public class LifeController : MonoBehaviour
     {
         _currentLife = data;
         _maxLife = data;
-    }
-
-    private void Awake()
-    {
-        _lifeUI = GetComponent<LifeUI>();
-    }
-
-    private void Start()
-    {
-        _lifeUI.Initialize(this);
     }
 
     public virtual void TakeDamage (float damage)
